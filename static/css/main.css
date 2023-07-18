@@ -250,6 +250,19 @@ section {
   font-family: var(--font-secondary);
 }
 
+@media only screen and (max-width: 600px) {
+  .header .btn-getstarted,
+.header .btn-getstarted:focus {
+  font-size: 11px;
+  color: var(--color-white);
+  background: var(--color-primary);
+  padding: 8px 19px;
+  border-radius: 4px;
+  transition: 0.3s;
+  font-family: var(--font-secondary);
+}
+}
+
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
   color: var(--color-white);
