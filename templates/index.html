@@ -2849,13 +2849,12 @@
       <!-- ======= Career Section ======= -->
       <section id="carrer" class="career">
         <div class="container">
-          <div class="section-header">
-            <p> Front-End Developer </p>
-            <p> Back-End Developer </p>
-            <p> UI/UX Designer </p>
-            <p> Business Development Executive </p>
-            <p> Graphic Designer</p>
-          </div>
+            <h2 class="text-center">Open Positions</h2>
+            <p>
+              {%for job in jobs%}
+                  {%include 'jobitem.html' %}
+              {% endfor %}
+            </p>
         </div>
       </section>
       <!-- ======= Contact Section ======= -->
