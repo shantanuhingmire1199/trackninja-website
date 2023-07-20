@@ -124,10 +124,10 @@
         <p>Where we transform your online presence into a digital masterpiece!</p>
         <div class="d-flex">
           <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center">
+          <!--<a href=" " class="glightbox btn-watch-video d-flex align-items-center">
             <i class="bi bi-play-circle"></i>
             <span>Watch Video</span>
-          </a>
+          </a>-->
         </div>
       </div>
     </section>
@@ -1554,7 +1554,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200" style="z-index: -1;">
                   <style>
                     .rocket-svg {
                       transform: translateY(5px);
@@ -2901,31 +2901,56 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form id="contactForm" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  
+                </div>
+
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    <input type="text" name="contact" class="form-control" id="contact" placeholder="Contact No" required>
                   </div>
                   <div class="col-md-6 form-group mt-3 mt-md-0">
                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                   </div>
                 </div>
+
+
                 <div class="form-group mt-3">
                   <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                 </div>
                 <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <textarea class="form-control" id="message" name="message" placeholder="Message" required></textarea>
                 </div>
                 <div class="text-center">
-                  <button type="submit">Send Message</button>
+                  <button type="submit" onclick="sendEmail()">Send Message</button>
+                  
                 </div>
               </form>
             </div>
+
+            <script>
+    function sendEmail() {
+        const form = document.getElementById("contactForm");
+        const name = encodeURIComponent(form.name.value);
+        const email = encodeURIComponent(form.email.value);
+        const subject = encodeURIComponent(form.subject.value);
+        const contact = encodeURIComponent(form.contact.value);
+        const message = encodeURIComponent(form.message.value);
+
+        const mailtoLink = `mailto:trackninjateam@gmail.com
+            ?subject=${subject}
+            &body=Name: ${name}%0D%0A
+                  Email: ${email}%0D%0A
+                  Contact No: ${contact}%0D%0A%0D%0A
+                  Message: ${message}`;
+
+        window.location.href = mailtoLink;
+    }
+</script>
             <!-- End Contact Form -->
           </div>
         </div>
